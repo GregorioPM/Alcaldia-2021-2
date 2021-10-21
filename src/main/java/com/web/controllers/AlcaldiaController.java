@@ -108,33 +108,35 @@ public class AlcaldiaController {
 	
 	@Secured({"ROLE_ADMIN","ROLE_COMUNICADOR"})
 	@PutMapping("/update/{id}")
-	public ResponseEntity<?> update(@PathVariable int id,@RequestBody Alcaldia alcalida, @RequestParam("files") MultipartFile files) {
+	public ResponseEntity<?> update(@PathVariable int id,@RequestBody Alcaldia alcalida) {
+
 		Alcaldia alca=this.service.findById(id);
-		
+		System.out.println(alca.getNombre());
+		System.out.println("Gregorio");
+
 		if(alca==null) {
 			Map<String, Object> map=new HashMap<>();
 			map.put("mensaje", "La alcaldia a actulizar no se encontro en la base de datos");
 			map.put("error", "La alcalida en la bd no existe");
 			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.NOT_FOUND);
 		}
-		if(files.isEmpty()) {	
+		/*if(files.isEmpty()) {	
 			Map<String, Object> map=new HashMap<>();
 			map.put("mensaje", "no se envio ninguna imagen");
 			return new ResponseEntity<Map<String, Object>>(map, HttpStatus.NOT_FOUND);
-		}
+		}*/
 		
 		try {
-			
 			
 			alca.setAlcalde(alcalida.getAlcalde());
 			alca.setCorreo(alcalida.getCorreo());
 			alca.setDireccion(alcalida.getDireccion());
 			alca.setHorarioAtencion(alcalida.getHorarioAtencion());
-			alca.setIdAlcaldia(alcalida.getIdAlcaldia());
-			alca.setLogo(files.getOriginalFilename());
+			//alca.setIdAlcaldia(alcalida.getIdAlcaldia());
+			//alca.setLogo(files.getOriginalFilename());
 			alca.setNombre(alcalida.getNombre());
 			alca.setTelefono(alcalida.getTelefono());
-			uploadService.copy(files);
+			//uploadService.copy(files);
 			Map<String, Object> map=new HashMap<>();
 			map.put("mensaje", "Alcaldia actualizado corrctamente");
 			map.put("Alcaldia", this.service.guardar(alca));

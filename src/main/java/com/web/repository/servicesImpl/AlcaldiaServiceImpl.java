@@ -28,9 +28,10 @@ public class AlcaldiaServiceImpl implements AlcaldiaService {
 			
 			return repository.save(entity);
 		} catch (Exception e) {
+			System.out.println("fallo actualizar alcaldia");
 			logger.error("Registrar alcaldia", e);
+			return null;
 		}
-		return null;
 	}
 
 	@Override
