@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.jfr.Event;
 
 import java.util.List;
 
@@ -62,6 +63,11 @@ public class Alcaldia implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy="alcaldia")
 	private List<Usuario> usuarios;
+
+	//bi-directional many-to-one association to Usuario
+	@JsonIgnore
+	@OneToMany(mappedBy="alcaldia")
+	private List<Evento> eventos;
 
 	public Alcaldia() {
 	}
@@ -216,6 +222,20 @@ public class Alcaldia implements Serializable {
 		tramite.setAlcaldia(null);
 
 		return tramite;
+	}
+
+	public List<Evento> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	public Evento removeEvento(Evento evento){
+		getEventos().remove(evento);
+		evento.setAlcaldia(null);
+		return evento;
 	}
 
 	public List<Usuario> getUsuarios() {
