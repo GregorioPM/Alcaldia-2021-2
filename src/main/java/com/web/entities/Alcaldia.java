@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jdk.jfr.Event;
 
 import java.util.List;
@@ -65,7 +66,7 @@ public class Alcaldia implements Serializable {
 	private List<Usuario> usuarios;
 
 	//bi-directional many-to-one association to Usuario
-	@JsonIgnore
+	@JsonManagedReference
 	@OneToMany(mappedBy="alcaldia")
 	private List<Evento> eventos;
 
