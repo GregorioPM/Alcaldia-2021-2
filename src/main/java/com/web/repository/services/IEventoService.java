@@ -7,7 +7,9 @@ import java.util.List;
 public interface IEventoService {
 
     public Evento save(Evento evento);
+    Evento update(Evento evento);
     public String remove(int id);
     public List<Evento> findAll();
     public Evento findById(int id);
+
 }

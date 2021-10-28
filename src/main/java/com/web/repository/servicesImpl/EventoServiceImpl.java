@@ -24,6 +24,16 @@ public class EventoServiceImpl implements IEventoService {
     }
 
     @Override
+    public Evento update(Evento evento) {
+        try{
+            return  eventoDao.save(evento);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return  null;
+        }
+    }
+
+    @Override
     public String remove(int id) {
         try {
         eventoDao.deleteById(id);
