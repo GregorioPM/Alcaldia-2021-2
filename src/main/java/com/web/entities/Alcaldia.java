@@ -40,6 +40,13 @@ public class Alcaldia implements Serializable {
 
 	private String telefono;
 
+	/*@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_alcalde",referencedColumnName = "id")
+	private Alcalde alcaldeDatos;*/
+
+	@OneToOne(mappedBy = "alcaldia")
+	private Alcalde alcaldeDatos;
+
 	//bi-directional many-to-one association to EnlaceIntere
 	@JsonIgnore
 	@OneToMany(mappedBy="alcaldia")
@@ -261,4 +268,11 @@ public class Alcaldia implements Serializable {
 		return usuario;
 	}
 
+	/*public Alcalde getAlcaldeDatos() {
+		return alcaldeDatos;
+	}
+
+	public void setAlcaldeDatos(Alcalde alcaldeDatos) {
+		this.alcaldeDatos = alcaldeDatos;
+	}*/
 }

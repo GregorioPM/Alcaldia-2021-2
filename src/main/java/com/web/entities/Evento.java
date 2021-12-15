@@ -25,7 +25,9 @@ public class Evento implements Serializable {
     private int id;
     private String titulo;
     private String descripcion;
+    private String categoria;
     @Column(name = "fecha_evento")
+    @Temporal(TemporalType.DATE)
     private Date fechaEvento;
 
     //bi-directional many-to-one association to Alcaldia

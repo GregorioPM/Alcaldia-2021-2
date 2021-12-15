@@ -26,9 +26,6 @@ public class Categoria implements Serializable {
 
 	private String titulo;
 
-	//bi-directional many-to-one association to SubCategoria
-	@OneToMany(mappedBy="categoria")
-	private List<SubCategoria> subCategorias;
 
 	public Categoria() {
 	}
@@ -65,7 +62,11 @@ public class Categoria implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public List<SubCategoria> getSubCategorias() {
+	//bi-directional many-to-one association to SubCategoria
+	//@OneToMany(mappedBy="categoria")
+	//private List<SubCategoria> subCategorias;
+
+	/*public List<SubCategoria> getSubCategorias() {
 		return this.subCategorias;
 	}
 
@@ -85,6 +86,6 @@ public class Categoria implements Serializable {
 		subCategoria.setCategoria(null);
 
 		return subCategoria;
-	}
+	}*/
 
 }

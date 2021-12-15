@@ -25,11 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.web.entities.Categoria;
 import com.web.repository.services.CategoriaService;
 
-//KEVIN ENRIQUE JIMENEZ SANCHEZ COD:1151652 CATEGORIA
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/Categoria")
+@RequestMapping("/categoria")
 public class CategoriaController {
 
 	@Autowired
@@ -71,7 +70,7 @@ public class CategoriaController {
 	
 	@Secured({"ROLE_ADMIN","ROLE_COMUNICADOR"})
 	@PostMapping("/save")
-	public ResponseEntity<?> guardar(@ModelAttribute Categoria categoria, Principal principal){
+	public ResponseEntity<?> guardar(@RequestBody Categoria categoria){
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
 			

@@ -35,6 +35,8 @@ public class Foto implements Serializable {
 	@JoinColumn(name="id_noticia")
 	private Noticia noticia;
 
+
+
 	public Foto() {
 	}
 

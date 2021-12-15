@@ -30,8 +30,6 @@ import com.web.entities.Alcaldia;
 import com.web.repository.services.AlcaldiaService;
 import com.web.repository.services.IUploadFileService;
 
-
-//KEVIN ENRIQUE JIMENEZ SANCHEZ COD:1151652 Alcaldia
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/alcaldia")

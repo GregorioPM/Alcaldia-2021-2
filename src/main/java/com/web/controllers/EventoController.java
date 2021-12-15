@@ -18,7 +18,6 @@ import java.util.Map;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/evento")
-@Secured({"ROLE_ADMIN","ROLE_COMUNICADOR"})
 public class EventoController {
 
     @Autowired
