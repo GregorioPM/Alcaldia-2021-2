@@ -8,5 +8,9 @@ INSERT INTO categoria(id_categoria,descripcion,orden,titulo) VALUES(2,'Para Depo
 
 INSERT INTO sub_categoria(id_sub_categoria,descripcion,orden,titulo,categoria_id) VALUES(1,'Para pruebas',2,'Contaduria',1);
 
+insert into noticia(titulo,descripcion,usuario) values ("Sustentacion","Previo final","jose@gmail.com");
 
+insert into foto (descripcion,id_noticia,usuario) values ("5f3207dd-e75d-4d8f-82be-feef44945782_2296.jpg",1,"jose@gmail.com");
+
+Insert into evento (titulo,descripcion,categoria,alcaldia_id) values ("Evento Ejercicios","En el polideportivo","Deportes",1);
 
