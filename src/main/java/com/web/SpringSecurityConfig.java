@@ -35,7 +35,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     	 http.cors()
     	 .and().
-    	 authorizeRequests().antMatchers("/signup/**","/noticia/**","/alcaldia/**","/categoria/**","/usuario/**" ,"/evento/**","/uploads/**","/tramite/listar").permitAll()
+    	 authorizeRequests().antMatchers("/signup/**","/noticia/**","/alcaldia/**","/categoria/**","/usuario/**" ,"/evento/**","/uploads/**","/tramite/listar","/v2/api-docs/**","/swagger-ui/**","/swagger-resources/**","/configuration/**","/swagger-ui.html").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtService))
